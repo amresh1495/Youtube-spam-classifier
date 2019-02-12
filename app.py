@@ -21,7 +21,7 @@ def predict():
     # Features and Labels
     df_x = df_data['CONTENT']
     df_y = df_data.CLASS
-# Extract Feature With CountVectorizer
+    # Extract Feature With CountVectorizer
     corpus = df_x
     cv = CountVectorizer()
     X = cv.fit_transform(corpus)  # Fit the Data
@@ -34,10 +34,6 @@ def predict():
     clf.fit(X_train, y_train)
     clf.score(X_test, y_test)
     accuracy = clf.score(X_test, y_test) * 100
-    # Alternative Usage of Saved Model
-    # ytb_model = open("naivebayes_spam_model.pkl","rb")
-    # clf = joblib.load(ytb_model)
-
     if request.method == 'POST':
         comment = request.form['comment']
         data = [comment]
