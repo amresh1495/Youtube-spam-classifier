@@ -4,6 +4,7 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.externals import joblib
+import os
 
 
 app = Flask(__name__)
@@ -43,4 +44,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+   port = int(os.environ.get("PORT", 5000))
+   app.run(debug=True, port=port)
