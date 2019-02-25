@@ -4,29 +4,33 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
 </head>
 
 <body>
 
 	<header>
 		<div class="container">
-			<div id="brandname">
-				ML App
+			<div id="brandname" style="font-family:Verdana, Geneva, Tahoma, sans-serif">
+				<b>ML App
 			</div>
-			<h2>Spam Detection For Youtube Comments</h2>
+			<h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif"><b>Spam Detection For Youtube Comments</h2>
 
 		</div>
 	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+	<br>
+	<p style="color:blue;font-size:20;text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif"><b>Results for
+			Comment</b></p>
 	<div class="results">
 		{% if prediction == 1%}
-		<h2 style="color:red;">Spam</h2>
+		<h4 style="text-align: center;"><b>This is a spam comment ! <br><br></b><span class="badge badge-secondary">Accuracy of classfication:
+				{{accuracy}} percent</span></h4>
 		{% elif prediction == 0%}
-		<h2 style="color:blue;">Not a Spam (It is a Ham)</h2>
+		<h4 style="text-align: center;"><b>This is NOT a spam comment ! <br><br></b><span class="badge badge-secondary">Accuracy of classification:
+				{{accuracy}} percent</span></h4>
 		{% endif %}
-		<h3 style="color:red">Accuracy of the classfication is {{accuracy}} percent</h3>
 	</div>
-
 </body>
 
 </html>
